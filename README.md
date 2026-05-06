@@ -117,4 +117,4 @@ Sarmad Siyal
 
 This project is part of the AI Automation Internship probation tasks (Day 4–5).
 
-It represents a clean and efficient implementation of a lead capture and response system suitable for real-world business use.
+Credentials are not included in this workflow. Please configure your own Google Sheets and Gmail credentials before running.
