@@ -103,7 +103,7 @@ No unnecessary complexity or overengineering is introduced.
 
 Watch the complete demonstration here:
 
-[Add your video link here]
+[[Add your video link here](https://www.loom.com/share/458f3490b94a469c8980956f09b8773a)]
 
 ---
 
