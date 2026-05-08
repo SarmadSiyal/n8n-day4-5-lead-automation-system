@@ -21,7 +21,7 @@ The system is designed to simulate a **real-world business lead pipeline**, focu
 
 ## 🔄 Workflow Architecture
 
-Form Submission → n8n Webhook → Data Processing → Google Sheets → Email Response
+Form Submission → n8n Webhook → Data Processing → Google Sheets → Success Response → Email Automation
 
 ---
 
