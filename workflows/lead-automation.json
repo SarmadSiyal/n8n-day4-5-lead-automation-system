@@ -1,0 +1,343 @@
+{
+  "name": "Lead Capture & Auto Response System",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-capture",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -464,
+        -16
+      ],
+      "id": "b0e81d54-bb84-475f-82ef-b2f870db8f1a",
+      "name": "Webhook",
+      "webhookId": "4362ed50-f340-4f9e-810c-8fabfa332327"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "02d68dcc-690c-4e65-8be7-f75bb32e8871",
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "770d616d-46eb-4919-b8ec-044ae52fa654",
+              "name": "",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "f3e3abbb-7235-4768-9bbb-03465f82d4df",
+              "name": "email",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "c25b197a-0e0d-48c0-8752-fb7d5a9d0869",
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "f33259a6-57ca-4106-8e64-2e56dd8877db",
+              "name": "company",
+              "value": "={{ $json.body.company }}",
+              "type": "string"
+            },
+            {
+              "id": "90091421-d3e2-4cca-b9de-674e90593b97",
+              "name": "service",
+              "value": "={{ $json.body.service }}",
+              "type": "string"
+            },
+            {
+              "id": "788132f9-6eea-4bda-9e37-92a902ca2fb8",
+              "name": "budget",
+              "value": "={{ $json.body.budget }}",
+              "type": "string"
+            },
+            {
+              "id": "d5f52eff-f798-4a94-8220-031bc9d81fb2",
+              "name": "urgency",
+              "value": "={{ $json.body.urgency }}",
+              "type": "string"
+            },
+            {
+              "id": "6e40ee8b-a04d-41a1-8fcc-fdcb688e9d18",
+              "name": "source",
+              "value": "={{ $json.body.source }}",
+              "type": "string"
+            },
+            {
+              "id": "3c858328-b004-466b-acde-7d138eaf34df",
+              "name": "message",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            },
+            {
+              "id": "faaf2ea5-b831-4c66-b1f3-5470357064e3",
+              "name": "timestamp",
+              "value": "={{ new Date().toLocaleString(\"en-GB\", { timeZone: \"Asia/Karachi\", hour12: false }) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -16
+      ],
+      "id": "611d534c-b2af-40e2-bfc4-86c0599b8b53",
+      "name": "Format Lead Data"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "185DDUFzD-6XuWsx7rQ9IJkF_nbmkAnng1fPTXGkFc8g",
+          "mode": "list",
+          "cachedResultName": "Lead Management System",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185DDUFzD-6XuWsx7rQ9IJkF_nbmkAnng1fPTXGkFc8g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185DDUFzD-6XuWsx7rQ9IJkF_nbmkAnng1fPTXGkFc8g/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.name }}",
+            "Email": "={{ $json.email }}",
+            "Phone": "={{ $json.phone }}",
+            "Company": "={{ $json.company }}",
+            "Service": "={{ $json.service }}",
+            "Budget": "={{ $json.budget }}",
+            "Urgency": "={{ $json.urgency }}",
+            "Source": "={{ $json.source }}",
+            "Message": "={{ $json.message }}",
+            "Timestamp": "={{ $json.timestamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service",
+              "displayName": "Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -32,
+        -16
+      ],
+      "id": "ed4740c8-10e7-4274-90a4-12cf09e9c76f",
+      "name": "Store Lead in Database",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Thank you for contacting us",
+        "emailType": "text",
+        "message": "=Hi {{ $json.Name }},\n\nThank you for reaching out to us.\n\nWe have received your request regarding {{ $json.Service }}.\n\nOur team will contact you soon.\n\nBest regards,\nAI Automation Team",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        -16
+      ],
+      "id": "ed5956f5-07e3-45c8-86e4-ed1b8a980b7c",
+      "name": "Send Confirmation Email",
+      "webhookId": "fc4e33f5-05d0-4410-86c0-2fc63831a8ad",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        192,
+        -16
+      ],
+      "id": "df16e3c6-c7cf-4281-8fa4-e0f8d0ff457e",
+      "name": "Send Success Response"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Lead Data": {
+      "main": [
+        [
+          {
+            "node": "Store Lead in Database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Lead in Database": {
+      "main": [
+        [
+          {
+            "node": "Send Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Confirmation Email": {
+      "main": [
+        []
+      ]
+    },
+    "Send Success Response": {
+      "main": [
+        [
+          {
+            "node": "Send Confirmation Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "06a31208-1192-48fb-8c0c-fcf165b77640",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4afab8f9e286217cf61120568c8c214f2eecb2afad454e4186dea3fbb88841f8"
+  },
+  "id": "aeLTwi9fUA5J3zkk",
+  "tags": []
+}
